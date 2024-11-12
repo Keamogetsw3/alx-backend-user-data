@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Module manage the API authentication
 """
-from flask import jsonify, request
+from flask import request
 from typing import List, TypeVar
 
 
