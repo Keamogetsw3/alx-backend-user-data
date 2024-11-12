@@ -8,9 +8,20 @@ from flask import request
 class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ Check if authentication is required for the given path.
-        Returns: False
+        Returns:
+            True if the path is not in excluded_paths, False otherwise.
         """
-        return False
+        if path is None:
+            return True
+        if not excluded_paths:
+            return True
+        
+        normalized_path = path if path.endswith('/') else path + '/'
+        
+        if normalized_path in excluded_paths:
+            return False
+        return True
+
 
     def authorization_header(self, request=None) -> str:
         """ Return the authorization header from the Flask request object.
