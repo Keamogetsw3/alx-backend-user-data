@@ -15,9 +15,9 @@ class Auth:
         require_auth(path: str, excluded_paths: List[str]) -> bool:
             Determines if a given path requires authentication.
         authorization_header(request=None) -> str:
-            Retrieves the authorization header from the Flask request, if available.
+            Retrieves the authorization header from the Flask request
         current_user(request=None) -> TypeVar('User'):
-            Retrieves the current authenticated user (returns None by default).
+            Retrieves the current authenticated user
     """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
@@ -35,9 +35,9 @@ class Auth:
             return True
         if not excluded_paths:
             return True
-        
+
         normalized_path = path if path.endswith('/') else path + '/'
-        
+
         return normalized_path not in excluded_paths
 
     def authorization_header(self, request=None) -> str:
