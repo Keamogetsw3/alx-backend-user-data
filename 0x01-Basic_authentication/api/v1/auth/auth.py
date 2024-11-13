@@ -6,6 +6,14 @@ from flask import request
 
 
 class Auth:
+     """
+    Auth class manage the API authentication
+    Methods:
+        def require_auth(self, path: str, excluded_paths: List[str]) -> bool: Authenticates a user.
+        def authorization_header(self, request=None) -> str: contains authentication
+    credentials needed to access protected resources
+        def current_user(self, request=None) -> TypeVar('User'): that returns None - request will be the Flask request object
+    """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ Check if authentication is required for the given path.
         Returns:
