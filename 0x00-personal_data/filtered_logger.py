@@ -61,7 +61,9 @@ class RedactingFormatter(logging.Formatter):
             str: The formatted log message with redacted fields.
         """
         message = super(RedactingFormatter, self).format(record)
-        redacted = filter_datum(self.fields, self.REDACTION, message, self.SEPARATOR)
+        redacted = filter_datum(
+          self.fields, self.REDACTION, message, self.SEPARATOR
+        )
         return redacted
 
 
