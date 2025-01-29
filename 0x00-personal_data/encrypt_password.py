@@ -18,10 +18,10 @@ def hash_password(password: str) -> bytes:
     """
     # Encode the password into bytes for hashing
     b = password.encode()
-    
+
     # Generate the hashed password using bcrypt
     hashed = hashpw(b, bcrypt.gensalt())
-    
+
     return hashed
 
 
